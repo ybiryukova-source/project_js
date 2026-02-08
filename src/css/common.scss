@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background: var(--color-light);
+  font-family: var(--font-family);
+}
+
+.form-error {
+  font-size: 14px;
+  color: #cc3639;
+
+  min-height: 20px;
+  padding-left: var(--spacing-md);
+
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity 200ms ease, transform 200ms ease;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,22 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <link rel="stylesheet" href="./css/styles.css" />
+
+    <title>Your Energy — Get Body in Shape, Stay Healthy</title>
+    <meta
+      name="description"
+      content="Your Energy: тренування, вправи та мотивація для здорового способу життя."
+    />
+    <meta name="theme-color" content="#111111" />
+
+    <link rel="icon" type="image/svg+xml" href="./img/svg/favicon.svg" />
+
+    <link rel="stylesheet" href="./css/main.scss" />
   </head>
+
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+
+    <load src="./partials/header.html" />
 
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+
+      <load src="./partials/home.html" />
+
+
+      <load src="./partials/exercises.html" />
     </main>
 
+
     <load src="./partials/footer.html" />
+
+
+    <load src="./partials/exercise-modal.html" />
+    <load src="./partials/rating-modal.html" />
+    <load src="./partials/global-notification.html" />
 
     <script type="module" src="./main.js"></script>
   </body>
