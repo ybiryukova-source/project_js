@@ -380,24 +380,27 @@
           }
         }
 
-        &-overlay {
-          position: absolute;
-          inset: 0;
+&-overlay {
+  position: absolute;
+  inset: 0;
 
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
-          padding: 16px;
-          color: var(--color-light);
-          background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  padding: 16px;
+  color: var(--color-light);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
 
-          &-name {
-            font-size: 22px;
-            font-weight: 400;
-            text-align: center;
-            margin-bottom: var(--spacing-xs);
-          }
+&-name {
+  font-size: 22px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: var(--spacing-xs);
+
+  text-transform: capitalize;
+}
+
 
           &-category {
             font-size: 12px;
@@ -543,6 +546,7 @@
           &-value {
             color: var(--color-dark);
             font-weight: 400;
+            text-transform: capitalize;
           }
         }
       }
