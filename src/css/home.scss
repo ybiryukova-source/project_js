@@ -1,18 +1,19 @@
 .home__content {
-  padding: 0 32px;        
-  padding-bottom: var(--spacing-xl) 0;
+  padding: 120px 32px 0;   // 👈 БІЛЬШИЙ відступ зверху
+  padding-bottom: var(--spacing-xl);
+
   margin: 0 auto;
-  max-width: 1440px;      
-  margin-top: 0;
+  max-width: 1440px;
   background-color: var(--color-bg-light);
 
   @media (max-width: 768px) {
-    padding: 0 32px;
+    padding: 60px 32px 0; // трохи менше на планшеті
+    padding-bottom: var(--spacing-xl);
   }
 
   @media (max-width: 375px) {
-    padding: 0 20px;
-    margin: 0 auto;
+    padding: 40px 20px 0; // комфортно на телефоні
+    padding-bottom: var(--spacing-xl);
   }
 
   @media (max-width: 1024px) {

@@ -1,5 +1,30 @@
+/* ===== SAFE RESET (НЕ ЛАМАЄ ВЕРСТКУ) ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+}
+
+/* прибираємо стандартні відступи у списків тільки там, де ти їх використовуєш як layout */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* картинки не вилазять за контейнер */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== ТВОЇ СТИЛІ ===== */
+body {
   padding: 0;
 
   width: 100%;
