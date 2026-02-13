@@ -362,7 +362,8 @@ export function loadExerciseCards(filter, page = 1) {
   hideSearchAndReset();
 
   const encodedFilter = encodeURIComponent(filter);
-  const url = `/filters?filter=${encodedFilter}&page=${page}`;
+const url = `/filters?filter=${encodedFilter}&page=${page}&limit=${ITEMS_PER_PAGE}`;
+
 
   apiGet(url)
     .then(res => res.json())

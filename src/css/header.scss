@@ -6,6 +6,9 @@
   padding: var(--spacing-md) var(--spacing-xl);
   margin: 0;
 
+  padding: 20px 32px 0;     
+  margin: 0 auto;       
+  max-width: 1440px;    
   &__logo {
     font-size: var(--spacing-lg);
     font-weight: 600;
@@ -219,12 +222,13 @@
   }
 
   &__nav {
-    margin-top: 60px;
+    margin-top: 140px;
     margin-bottom: auto;
 
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    align-items: center;
 
     &-link {
       padding: 12px 0;

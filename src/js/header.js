@@ -1,4 +1,6 @@
-// src/js/header.js
+import { switchToHome, switchToFavorites } from './exercises.js';
+
+let activePage = 'home';
 
 let refs = {
   mobileMenu: null,
@@ -9,6 +11,32 @@ let refs = {
 
 function setBodyLock(isLocked) {
   document.body.style.overflow = isLocked ? 'hidden' : '';
+}
+
+function updateNavUI(page) {
+  document.querySelectorAll('.header__nav-link').forEach(link => {
+    link.classList.toggle(
+      'header__nav-link--active',
+      link.getAttribute('data-page') === page
+    );
+  });
+
+  document.querySelectorAll('.mobile-menu__nav-link').forEach(btn => {
+    btn.classList.toggle(
+      'mobile-menu__nav-link--active',
+      btn.getAttribute('data-page') === page
+    );
+  });
+}
+
+export function switchPage(page) {
+  if (!page || page === activePage) return;
+
+  activePage = page;
+  updateNavUI(page);
+
+  if (page === 'home') switchToHome();
+  if (page === 'favorites') switchToFavorites();
 }
 
 function openMenu() {
@@ -29,49 +57,37 @@ function closeMenu() {
   setBodyLock(false);
 }
 
-function setActiveNavLink() {
-  const path = window.location.pathname;
-  const isFavoritesPage = path.includes('favorites');
+function onNavClick(e) {
+  const target = e.target.closest('[data-page]');
+  if (!target) return;
 
-  document.querySelectorAll('.header__nav-link').forEach(link => {
-    const href = link.getAttribute('href') || '';
-    const active =
-      (isFavoritesPage && href.includes('favorites')) ||
-      (!isFavoritesPage && href.includes('index'));
+  e.preventDefault();
 
-    link.classList.toggle('header__nav-link--active', active);
-  });
+  const page = target.getAttribute('data-page');
+  switchPage(page);
 
-  document.querySelectorAll('.mobile-menu__nav-link').forEach(link => {
-    const href = link.getAttribute('href') || '';
-    const active =
-      (isFavoritesPage && href.includes('favorites')) ||
-      (!isFavoritesPage && href.includes('index'));
-
-    link.classList.toggle('mobile-menu__nav-link--active', active);
-  });
+  if (target.classList.contains('mobile-menu__nav-link')) {
+    closeMenu();
+  }
 }
 
 export function initHeader() {
+  const desktopNav = document.querySelector('.header__nav');
+  desktopNav?.addEventListener('click', onNavClick);
   refs.mobileMenu = document.querySelector('.mobile-menu');
   refs.burger = document.querySelector('.header__burger');
   refs.closeBtn = document.querySelector('.mobile-menu__close');
   refs.overlay = document.getElementById('overlay');
-
   refs.burger?.addEventListener('click', openMenu);
   refs.closeBtn?.addEventListener('click', closeMenu);
-
-  // клік по фону (якщо у вас так задумано)
+  const mobileNav = document.querySelector('.mobile-menu__nav');
+  mobileNav?.addEventListener('click', onNavClick);
   refs.mobileMenu?.addEventListener('click', e => {
     if (e.target === refs.mobileMenu) closeMenu();
   });
-
-  // закривати меню при кліку на посилання
-  document.querySelector('.mobile-menu__nav')?.addEventListener('click', e => {
-    const link = e.target.closest('a');
-    if (link) closeMenu();
-  });
-
-  setActiveNavLink();
+  updateNavUI(activePage);
 }
 
+export function getCurrentPage() {
+  return activePage;
+}

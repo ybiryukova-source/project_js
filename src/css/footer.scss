@@ -5,7 +5,7 @@
   background: var(--color-dark);
   color: var(--color-light);
 
-  padding: 50px 10px 30px;
+  padding: 50px 0px 30px;
   font-family: var(--font-family);
 
   @media (max-width: 480px) {
@@ -15,7 +15,8 @@
   &__container {
     width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1440px;   
+    padding: 0 32px;     
 
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr;

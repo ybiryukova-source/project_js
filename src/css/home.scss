@@ -1,10 +1,19 @@
 .home__content {
-  padding: var(--spacing-xl);
-  padding-bottom: var(--spacing-xl);
-  width: 100%;
+  padding: 0 32px;        
+  padding-bottom: var(--spacing-xl) 0;
   margin: 0 auto;
+  max-width: 1440px;      
   margin-top: 0;
   background-color: var(--color-bg-light);
+
+  @media (max-width: 768px) {
+    padding: 0 32px;
+  }
+
+  @media (max-width: 375px) {
+    padding: 0 20px;
+    margin: 0 auto;
+  }
 
   @media (max-width: 1024px) {
     display: flex;
